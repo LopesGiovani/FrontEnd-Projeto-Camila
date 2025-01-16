@@ -82,7 +82,7 @@ if (isset($_POST['publish'])) {
    // Verifique se um arquivo foi selecionado
    if (!empty($image)) {
       // Verifique se o arquivo é uma imagem (opcional)
-      $allowed_extensions = array('jpg', 'jpeg', 'png', 'webp', 'zip', 'pdf');;
+      $allowed_extensions = array('jpg', 'jpeg', 'png', 'webp', 'zip', 'pdf');
       $file_extension = pathinfo($image, PATHINFO_EXTENSION);
       if (!in_array(strtolower($file_extension), $allowed_extensions)) {
 
