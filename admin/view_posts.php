@@ -15,26 +15,19 @@ if (isset($_POST['delete'])) {
    $p_id = $_POST['post_id'];
    $p_id = filter_var($p_id, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-   // Preparando a consulta para buscar o post
    $delete_image = $conn->prepare("SELECT * FROM `posts` WHERE id = ?");
    $delete_image->execute([$p_id]);
    $fetch_delete_image = $delete_image->fetch(PDO::FETCH_ASSOC);
 
 if ($fetch_delete_image['image'] != '') {
     $image_path = '../uploaded_img/' . $fetch_delete_image['image'];
-    
-    // Verifique o caminho do arquivo
-    var_dump($image_path);  // Exibe o caminho completo para o arquivo
-    
+        
     if (file_exists($image_path)) {
         unlink($image_path);
-        echo "Arquivo excluído: " . $image_path;
     } else {
-        echo "O arquivo não foi encontrado: " . $image_path;
     }
 }
 
-   // Apagar a imagem da pasta 'uploaded_img'
    if ($fetch_delete_image['image'] != '') {
       $image_path = '../uploaded_img/' . $fetch_delete_image['image'];
       if (file_exists($image_path)) {
@@ -42,7 +35,6 @@ if ($fetch_delete_image['image'] != '') {
       }
    }
 
-   // Apagar o arquivo da pasta 'uploaded_file' (se existir)
    if ($fetch_delete_image['file'] != '') {
       $file_path = '../uploaded_file/' . $fetch_delete_image['file'];
       if (file_exists($file_path)) {
@@ -50,15 +42,13 @@ if ($fetch_delete_image['image'] != '') {
       }
    }
 
-   // Apagar o post do banco de dados
    $delete_post = $conn->prepare("DELETE FROM `posts` WHERE id = ?");
    $delete_post->execute([$p_id]);
 
-   // Apagar os comentários relacionados ao post
    $delete_comments = $conn->prepare("DELETE FROM `comments` WHERE post_id = ?");
    $delete_comments->execute([$p_id]);
 
-   $message[] = 'Post deleted successfully!';
+   $message[] = 'Post apagado com sucesso';
 }
 
 

@@ -64,13 +64,52 @@ include 'components/like_post.php';
                             Pesquisas
                             </h3>
                             <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
-
                             </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
+
+    <div class="container" style="display:flex; justify-content: space-between; margin-bottom: 50px;">
+
+        <!-- Start Single Sidebar Widget -->
+        <div class="sidebar-widget" style="flex: 3; margin-right: 10px;">
+            <h6 class="sidebar-title">Categorias</h6>
+            <div class="sidebar-content">
+                <ul class="sidebar-menu" style="display: flex; flex-wrap: wrap; list-style: none; padding: 0;">
+                    <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=fotos">Fotos</a></li>
+                    <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=manuscritos">Manuscritos</a>
+                    </li>
+                    <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=jornais">Jornais</a></li>
+                    <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=historia-oral">História
+                            Oral</a></li>
+                    <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=historia-local">História
+                            Local</a></li>
+                </ul>
+            </div>
+        </div> <!-- End Single Sidebar Widget -->
+
+        <div class="sidebar-widget" style="flex: 1; margin-left: 10px;">
+            <h6 class="sidebar-title">Buscar</h6>
+            <div class="default-search-style d-flex">
+                <form action="search.php" method="POST" class="search-form">
+                    <input class="default-search-style-input-box" type="search" placeholder="Pesquisar...   "
+                        maxlength="100" name="search_box" required>
+                    <button name="search_btn" class="default-search-style-input-btn" type="submit"><i
+                            class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div> <!-- End Single Sidebar Widget -->
+
+    </div>
+
+
+    </div>
+
+
     <div class="blog-section">
         <div class="container">
             <div class="row">
