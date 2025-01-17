@@ -21,9 +21,19 @@ if (isset($_POST['delete'])) {
 
    $fetch_delete_image = $delete_image->fetch(PDO::FETCH_ASSOC);
 
-   if ($fetch_delete_image['image'] != '') {
-      unlink('../uploaded_img/' . $fetch_delete_image['image']);
-   }
+if ($fetch_delete_image['image'] != '') {
+    $image_path = '../uploaded_img/' . $fetch_delete_image['image'];
+    
+    // Verifique o caminho do arquivo
+    var_dump($image_path);  // Exibe o caminho completo para o arquivo
+    
+    if (file_exists($image_path)) {
+        unlink($image_path);
+        echo "Arquivo excluído: " . $image_path;
+    } else {
+        echo "O arquivo não foi encontrado: " . $image_path;
+    }
+}
 
    $delete_post = $conn->prepare("DELETE FROM `posts` WHERE id = ?");
 
