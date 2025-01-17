@@ -152,7 +152,7 @@
 
             <address class="address">
                 <span>Endereço: IFMG Campus São João Evangelista.</span>
-                <span>Email: demo@example.com</span>
+                <span>Email: contato@cdocvirtualsje.com.br</span>
             </address>
 
             <ul class="social-link">
@@ -186,7 +186,7 @@
 
         <address class="address">
             <span>Endereço: IFMG Campus São João Evangelista.</span>
-            <span>Email: demo@example.com</span>
+            <span>Email: contato@cdocvirtualsje.com.br</span>
         </address>
 
         <ul class="social-link">
