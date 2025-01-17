@@ -20,7 +20,6 @@ if (isset($_POST['delete'])) {
    $delete_image->execute([$p_id]);
    $fetch_delete_image = $delete_image->fetch(PDO::FETCH_ASSOC);
 
-<<<<<<< HEAD
 if ($fetch_delete_image['image'] != '') {
     $image_path = '../uploaded_img/' . $fetch_delete_image['image'];
     
@@ -34,7 +33,7 @@ if ($fetch_delete_image['image'] != '') {
         echo "O arquivo não foi encontrado: " . $image_path;
     }
 }
-=======
+
    // Apagar a imagem da pasta 'uploaded_img'
    if ($fetch_delete_image['image'] != '') {
       $image_path = '../uploaded_img/' . $fetch_delete_image['image'];
@@ -42,7 +41,6 @@ if ($fetch_delete_image['image'] != '') {
          unlink($image_path);
       }
    }
->>>>>>> a2fa5773d90be99646808cf38661aa389e5152a1
 
    // Apagar o arquivo da pasta 'uploaded_file' (se existir)
    if ($fetch_delete_image['file'] != '') {
