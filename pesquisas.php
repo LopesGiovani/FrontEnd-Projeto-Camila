@@ -103,11 +103,8 @@ include 'components/like_post.php';
                 </form>
             </div>
         </div> <!-- End Single Sidebar Widget -->
-
     </div>
 
-
-    </div>
 
 
     <div class="blog-section">

@@ -11,6 +11,7 @@ if (isset($_SESSION['user_id'])) {
 
 include 'components/like_post.php';
 
+
 // Certifique-se de definir $category mesmo se não estiver definido na URL
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 ?>
@@ -30,7 +31,12 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
-   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="assets/css/style.min.css">
+   <style>
+      .title-category-user {
+         text-transform: capitalize;
+      }
+   </style>
 
 </head>
 
@@ -56,6 +62,40 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
          </div>
       </div>
    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+
+
+   <div class="container" style="display:flex; justify-content: space-between; margin-bottom: 50px;">
+
+      <!-- Start Single Sidebar Widget -->
+      <div class="sidebar-widget" style="flex: 3; margin-right: 10px;">
+         <h6 class="sidebar-title">Categorias</h6>
+         <div class="sidebar-content">
+            <ul class="sidebar-menu" style="display: flex; flex-wrap: wrap; list-style: none; padding: 0;">
+               <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=fotos">Fotos</a></li>
+               <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=manuscritos">Manuscritos</a>
+               </li>
+               <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=jornais">Jornais</a></li>
+               <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=historia-oral">História
+                     Oral</a></li>
+               <li style="flex: 1; margin-right: 10px;"><a href="category.php?category=historia-local">História
+                     Local</a></li>
+            </ul>
+         </div>
+      </div> <!-- End Single Sidebar Widget -->
+
+      <div class="sidebar-widget" style="flex: 1; margin-left: 10px;">
+         <h6 class="sidebar-title">Buscar</h6>
+         <div class="default-search-style d-flex">
+            <form action="search.php" method="POST" class="search-form">
+               <input class="default-search-style-input-box" type="search" placeholder="Pesquisar...   " maxlength="100"
+                  name="search_box" required>
+               <button name="search_btn" class="default-search-style-input-btn" type="submit"><i
+                     class="fa fa-search"></i></button>
+            </form>
+         </div>
+      </div> <!-- End Single Sidebar Widget -->
+   </div>
    <div class="blog-section">
       <div class="container">
          <div class="row">
@@ -82,10 +122,9 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
                            $confirm_likes->execute([$user_id, $post_id]);
                            ?>
 
-                           <div class="col-xl-4 col-md-6 col-12 mb-6">
+                           <div class="col-xl-4 col-md-6 col-12 mb-6" data-aos="fade-up" data-aos-delay="0">
                               <form>
-                                 <div class="blog-list blog-grid-single-item blog-color--golden" data-aos="fade-up"
-                                    data-aos-delay="0">
+                                 <div class="blog-list blog-grid-single-item blog-color--golden aos-init aos-animate">
                                     <input type="hidden" name="post_id" value="<?= $post_id; ?>">
                                     <input type="hidden" name="admin_id" value="<?= $fetch_posts['admin_id']; ?>">
                                     <div class="image-box">
