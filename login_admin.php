@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
                         <h3>Admin</h3>
                         <form action="" method="post">
                             <div class="default-form-box">
-                                <label>Email <span>*</span></label>
+                                <label>Nome de Usuário <span>*</span></label>
                                 <input type="text" name="name" maxlength="20" required
                                     placeholder="Digite seu nome de usuário" class="box"
                                     oninput="this.value = this.value.replace(/\s/g, '')">

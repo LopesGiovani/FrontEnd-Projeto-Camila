@@ -40,7 +40,7 @@ $search_box = $_POST['search_box'];
             <div class="row">
                <div class="col-12">
                   <h4 class="title-category-user">
-                     <?= $search_box; ?>
+                     <?= htmlspecialchars($search_box); ?>
                      </h3>
                      <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
 
@@ -59,8 +59,9 @@ $search_box = $_POST['search_box'];
                   <div class="row mb-n6">
                      <?php
                      if (isset($_POST['search_box']) or isset($_POST['search_btn'])) {
-                        $select_posts = $conn->prepare("SELECT * FROM `posts` WHERE title LIKE '%{$search_box}%' OR category LIKE '%{$search_box}%' AND status = ?");
-                        $select_posts->execute(['active']);
+                        $search_term = "%{$search_box}%";
+                        $select_posts = $conn->prepare("SELECT * FROM `posts` WHERE (title LIKE ? OR category LIKE ?) AND status = ?");
+                        $select_posts->execute([$search_term, $search_term, 'active']);
                         if ($select_posts->rowCount() > 0) {
                            while ($fetch_posts = $select_posts->fetch(PDO::FETCH_ASSOC)) {
 
