@@ -1,0 +1,3 @@
+.agent/
+# Ignorar arquivo de configuração com senhas
+components/config.php
